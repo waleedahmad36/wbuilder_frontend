@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Kaushan+Script&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  background-color: #000;
+  color: #fff;
+}
+html{
+  scroll-behavior: smooth;
+}
+.main {
+  font-family: "Nunito", sans-serif;
+  background: linear-gradient(90deg, #0b101a, rgba(0, 0, 50, 0.3));
+}
+.caveat {
+    font-family: "Caveat", serif;
+}
+.kaushan {
+    font-family: "Kaushan Script", cursive;
+}
+.section-border::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: blue;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left:-7px;
+}
+.section-border::after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: blue;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left:-7px;
+}
+
