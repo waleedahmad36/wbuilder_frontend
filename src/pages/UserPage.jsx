@@ -9,7 +9,6 @@ import { frontendUrl, rootUrl } from '../constants';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { LoaderPinwheel } from 'lucide-react';
-import React from 'react'
 
 const UserPage = () => {
     const user = useRecoilValue(userAtom);
@@ -159,3 +158,5 @@ const UserPage = () => {
     </>
   )
 }
+
+export default UserPage ;
