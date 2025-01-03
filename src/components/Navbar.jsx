@@ -4,6 +4,7 @@ import userAtom from '../atoms/userAtom';
 import { Loader2, LoaderPinwheel, Menu, X } from 'lucide-react'; // Icons for Hamburger and Close
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { rootUrl } from '../constants';
 
 const Navbar = () => {
   const setUser = useSetRecoilState(userAtom);
@@ -13,7 +14,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/v1/auth/logout', {
+      const res = await fetch(`${rootUrl}/api/v1/auth/logout`, {
         method: 'POST',
         credentials: 'include',
       });
@@ -30,9 +31,17 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center px-8 py-4 bg-gradient-to-r from-gray-900 to-black shadow-lg relative z-50">
+    <div className="flex justify-between items-center px-8 py-4 bg-gradient-to-r from-gray-900 to-black shadow-lg relative "
+    style={{
+      zIndex: 1000
+    }}
+    >
       {/* Logo Section */}
-      <Link to="/" className="flex items-center space-x-3 z-50 relative">
+      <Link to="/" className="flex items-center space-x-3  relative"    
+      style={{
+        zIndex: 1000
+      }}
+      >
         <img
           src="https://waleedweb.netlify.app/pics/waleedpic.png"
           alt="Logo"
@@ -43,7 +52,11 @@ const Navbar = () => {
       {/* Hamburger Menu for Small Screens */}
       <button
         onClick={() => setMobileNavOpen(!mobileNavOpen)}
-        className="block lg:hidden text-white z-50 relative"
+        className="block lg:hidden text-white  relative "  
+
+        style={{
+          zIndex: 1000
+        }}
       >
         {mobileNavOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
@@ -78,7 +91,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       <div
-        className={`lg:hidden fixed inset-0 bg-black bg-opacity-90 z-30 flex flex-col items-center justify-center space-y-6 transition-transform duration-300 ${
+        className={`lg:hidden fixed inset-0 bg-black bg-opacity-90 z-50 flex flex-col items-center justify-center space-y-6 transition-transform duration-300 ${
           mobileNavOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >

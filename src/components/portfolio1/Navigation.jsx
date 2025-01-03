@@ -30,7 +30,7 @@ const Navigation = ({ portfolio , preview }) => {
   return (
     <div className="relative">
       {/* Navbar */}
-      <nav className="navbar px-8 py-6 flex items-center justify-between bg-gradient-to-r from-black/60 to-black/60  top-0 z-50 w-full"  style={{
+      <nav className="navbar px-8 py-6 flex items-center justify-between bg-gradient-to-r from-black/60 to-black/60  top-0 z-40 w-full"  style={{
         position: !preview ? 'fixed'  : 'relative'
       }}  >
         <h3 className="text-lg">
