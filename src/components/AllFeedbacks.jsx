@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { FaRegComments } from 'react-icons/fa'
 import { rootUrl } from '../constants'
 
-const AllFeedbacks = () => {
+const AllFeedbacks = ({feedbackCount}) => {
   const [feedbacks, setFeedbacks] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -32,7 +31,7 @@ const AllFeedbacks = () => {
     }
 
     fetchFeedbacks()
-  }, [])
+  }, [feedbackCount])
 
   // Function to fetch gender-specific avatar
   const getAvatarUrl = (gender) => {
@@ -48,7 +47,7 @@ const AllFeedbacks = () => {
   return (
     <div className="  text-white py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 mb-6 text-center">
+        <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-gray-700 mb-6 text-center">
           All Feedbacks
         </h2>
 
@@ -63,11 +62,11 @@ const AllFeedbacks = () => {
         ) : error ? (
           <div className="text-center text-xl text-red-500">{error}</div>
         ) : (
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 justify-center">
             {feedbacks.map((feedback) => (
               <div
                 key={feedback._id}
-                className="bg-gray-800 p-6 rounded-lg shadow-xl transform transition-all hover:scale-105 hover:shadow-2xl w-[80%] sm:w-fit max-w-[360px] mx-auto md:mx-0"
+                className="bg-gradient-to-r from-gray-800 via-gray-900 to-black hover:shadow-lg hover:from-black hover:to-gray-800 transition-all duration-500 p-6 rounded-lg shadow-xl transform  w-[80%] sm:w-fit max-w-[360px] mx-auto md:mx-0"
               >
                 <div className="flex items-center mb-4">
                   {/* User Avatar */}
@@ -76,12 +75,12 @@ const AllFeedbacks = () => {
                     alt={feedback.user.username} 
                     className="w-12 h-12 rounded-full mr-4" 
                   />
-                  <h3 className="text-xl font-semibold">{feedback.user.username}</h3>
+                  <h3 className="text-xl  caveat font-bold">{feedback.user.username}</h3>
                 </div>
-                <p className="text-gray-300">
+                <p className="text-gray-200">
                     {truncateText(feedback.message, 150)}
                     </p>
-                <div className="text-sm text-gray-500 mt-4">
+                <div className="text-sm text-gray-300 mt-4">
                   <span>{new Date(feedback.createdAt).toLocaleDateString()}</span>
                 </div>
               </div>

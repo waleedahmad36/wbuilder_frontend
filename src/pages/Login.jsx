@@ -1,4 +1,4 @@
-import { Loader2 } from 'lucide-react'
+import {  LoaderPinwheel } from 'lucide-react'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom'
@@ -83,8 +83,8 @@ const Login = () => {
         </div>
         
 
-        <button type="submit" className="bg-blue-800 px-4 py-2 rounded-lg w-fit">
-          {loading ?  <Loader2 className="w-8 h-8 animate-spin text-blue-600" /> : "Login"}
+        <button type="submit" className="px-5 py-2 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-gray-300 font-medium text-lg rounded-lg shadow-md hover:text-white hover:shadow-lg hover:from-black hover:to-gray-800 transition-all duration-500 relative z-10 caveat w-fit">
+          {loading ?  <LoaderPinwheel className="w-8 h-8 animate-spin text-blue-600" /> : "Login"}
         </button>
         <p  className="text-sm" >Don't Have an Account ? <Link to='/signup'  className="text-blue-100"  >Register</Link></p>
       </form>

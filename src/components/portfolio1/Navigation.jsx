@@ -30,13 +30,24 @@ const Navigation = ({ portfolio , preview }) => {
   return (
     <div className="relative">
       {/* Navbar */}
-      <nav className="navbar px-8 py-4 flex items-center justify-between bg-gradient-to-r from-black/60 to-black/60  top-0 z-50 w-full"  style={{
+      <nav className="navbar px-8 py-6 flex items-center justify-between bg-gradient-to-r from-black/60 to-black/60  top-0 z-50 w-full"  style={{
         position: !preview ? 'fixed'  : 'relative'
       }}  >
         <h3 className="text-lg">
           {portfolio?.logo}
           <span className="caveat text-3xl text-blue-100">{portfolio?.sublogo}</span>
         </h3>
+
+        {
+          !menuOpen && (
+            <div  className="hidden lg:flex gap-4" >
+          <a href="#hero">Home</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+          )
+        }
         <div className="menu-icon flex flex-col gap-1 cursor-pointer" onClick={toggleMenu}>
           <div
             className={`line-1 w-8 h-[2px] bg-blue-100 transition-transform ${

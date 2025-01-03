@@ -11,34 +11,57 @@ import { rootUrl } from '../constants';
 
 const PortfolioPage = () => {
     const {username}  = useParams();
-    const [portfolio,setPortfolio]= useState({})
+    const [portfolio,setPortfolio]= useState({});
+    const [loading,setLoading] = useState(false);
+    const [error,setError] = useState(null);
     const getPortfolio = async ()=> {
+        setLoading(true);
         try {
             const res = await fetch(`${rootUrl}/api/v1/portfolio/user/${username}`);
             const data = await res.json();
             if(data.success){
                 setPortfolio(data.data);
             }else{
-                toast.error(data.message || "something wrong")
+                setError(data.message || "something wrong");
             }
         } catch (error) {
-            toast.error("error")
+            setError("something went wrong")
+        }finally{
+            setLoading(false);
         }
     }
 
     useEffect(()=>{
         getPortfolio();
-    },[])
+    },[]);
+
+    if(error){
+        return <div className='flex justify-center items-center w-full h-screen' >
+            <p className='text-red-500'>{error}</p>
+        </div>
+    }
   return (
     <>
-    <div  className='bg-black' >
-    <Navigation  portfolio={portfolio} />
-    <Hero  portfolio={portfolio} />
-    <Skills  skills={portfolio.skills} />
-    <Projects  projects={portfolio.projects}  />
-    <Contact  portfolio={portfolio}  />
-    <Footer  portfolio={portfolio}  />
-    </div>
+   {
+    loading ? (
+        <div className='flex justify-center items-center w-full h-screen' >
+            <div class="flex flex-row gap-2">
+  <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce"></div>
+  <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:-.3s]"></div>
+  <div class="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:-.5s]"></div>
+</div>
+        </div>
+    ) : (
+        <div  className='bg-black' >
+        <Navigation  portfolio={portfolio} />
+        <Hero  portfolio={portfolio} />
+        <Skills  skills={portfolio.skills} />
+        <Projects  projects={portfolio.projects}  />
+        <Contact  portfolio={portfolio}  />
+        <Footer  portfolio={portfolio}  />
+        </div>
+    )    
+   }
     </>
   )
 }

@@ -2,8 +2,8 @@ import { FaFacebook, FaTwitter,  FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = ({portfolio}) => {
   return (
-    <footer className="bg-gray-900/40 text-gray-300 py-8">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
+    <footer className="bg-gray-900/40 text-gray-300 py-8 mt-20 lg:mt-5">
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center px-4">
         {/* Left Section */}
         <div className="text-center md:text-left">
           <h2 className="text-xl font-semibold">MyWebsite</h2>

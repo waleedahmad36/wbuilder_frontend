@@ -17,6 +17,16 @@ body {
   background-color: #000;
   color: #fff;
 }
+body::-webkit-scrollbar{
+  width: .6rem;
+}
+body::-webkit-scrollbar-thumb{
+  background: linear-gradient(to right , #0b101a, #fff);
+  border-radius: 5rem;
+}
+body::-webkit-scrollbar-track{
+  background: linear-gradient(to right , rgba(40,0,0,.7), rgba(0,0,120,0.3));
+}
 html{
   scroll-behavior: smooth;
 }

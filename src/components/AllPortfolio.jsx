@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiExternalLink } from "react-icons/fi";
 import { FaEdit } from 'react-icons/fa';
 import { useRecoilValue } from 'recoil';
 import userAtom from '../atoms/userAtom';
+import { rootUrl } from '../constants';
 
 const AllPortfolio = () => {
     const user = useRecoilValue(userAtom);
@@ -13,15 +13,14 @@ const AllPortfolio = () => {
     const getAllPortfolio = async ()=> {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:5000/api/v1/portfolio");
+        const res = await fetch(`${rootUrl}/api/v1/portfolio`);
         const data = await res.json();
         if(data.success){
             setAllPortfolio(data.data)
             console.log(data.data)
         }
       } catch (error) {
-        console.log(error)
-        toast.error("Something went wrong")     
+        console.log(error)    
       } finally{
         setLoading(false);
       }
