@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <div className="w-full bg-gradient-to-b from-gray-900 via-gray-900 to-black text-gray-200 py-10 mt-10">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8 px-4">
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 px-4">
         {/* Logo and Info Section */}
         <div className="flex flex-col md:flex-row items-center gap-6">
           <img

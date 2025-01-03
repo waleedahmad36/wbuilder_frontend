@@ -201,7 +201,7 @@ const UpdatePage = () => {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto p-8">
+      <div className="max-w-5xl mx-auto p-8">
         <h1 className="text-5xl font-bold mb-4 kaushan text-center">
           Update Portfolio
         </h1>
